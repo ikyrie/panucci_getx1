@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
 
-import '../models/item.dart';
+import '../../models/item.dart';
 
 class Cartao extends StatelessWidget {
   Cartao({Key? key, required this.item}) : super(key: key);
