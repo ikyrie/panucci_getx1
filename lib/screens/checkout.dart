@@ -24,8 +24,7 @@ class Checkout extends StatelessWidget {
                 ),
               ),
               SliverList(
-                  delegate: SliverChildBuilderDelegate((context, index) {
-                  },
+                  delegate: SliverChildBuilderDelegate((context, index) {},
                       childCount: 1)),
               const SliverToBoxAdapter(
                 child: Padding(
@@ -48,7 +47,7 @@ class Checkout extends StatelessWidget {
                   ),
                 ),
               ),
-              SliverToBoxAdapter(child: PaymentTotal(total: 00.00),),
+              const SliverToBoxAdapter(child: PaymentTotal(total: 00.00),),
               SliverFillRemaining(
                 hasScrollBody: false,
                 child: Align(
@@ -59,9 +58,9 @@ class Checkout extends StatelessWidget {
                           elevation: 0,
                           foregroundColor: Colors.white,
                           backgroundColor: Theme.of(context).colorScheme.surfaceTint),
-                      child: Row(
+                      child: const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const <Widget>[
+                          children: <Widget>[
                             Padding(
                               padding: EdgeInsets.only(right: 8.0),
                               child: Icon(Icons.account_balance_wallet),
