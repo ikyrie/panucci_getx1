@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get_dependency/components/item_list.dart';
+import 'package:get_dependency/dependencies/cart_controller.dart';
 import '../components/categoria_text.dart';
 import '../components/search_input.dart';
 
@@ -7,6 +9,7 @@ class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
 
   final TextEditingController searchTextController = TextEditingController();
+  final CartController cartController = Get.put(CartController());
 
   @override
   Widget build(BuildContext context) {
@@ -55,12 +58,14 @@ class Home extends StatelessWidget {
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.only(right: 8.0),
-                                    child: Text(
-                                      "0",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        color: 
-                                          Theme.of(context).colorScheme.onPrimary),
+                                    child: Obx(
+                                      () => Text(
+                                        "${cartController.cart.length}",
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          color: 
+                                            Theme.of(context).colorScheme.onPrimary),
+                                      ),
                                     ),
                                   ),
                                   Icon(

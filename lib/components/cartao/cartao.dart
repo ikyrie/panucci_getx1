@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_dependency/components/cartao/cartao_controller.dart';
+import 'package:get_dependency/dependencies/cart_controller.dart';
 import 'package:get_dependency/utils/snackbars.dart';
 
 import '../../models/item.dart';
@@ -15,6 +16,7 @@ class Cartao extends StatefulWidget {
 
 class _CartaoState extends State<Cartao> {
   late CardController controller;
+  final CartController cartController = Get.find<CartController>();
 
   @override
   void initState() {
@@ -60,7 +62,14 @@ class _CartaoState extends State<Cartao> {
                     children: <Widget>[
                       InkWell(
                         borderRadius: BorderRadius.circular(20),
-                        onTap: () => controller.decrement(widget.item.nome),
+                        onTap: () {
+                          if(controller.counter.value > 0) {
+                            controller.decrement();
+                            showSnackbarRemoveItem(widget.item.nome);
+                            cartController.removeItemFromCart(widget.item);
+                          }
+
+                        },
                         child: const Icon(
                           Icons.remove_circle_outline,
                           size: 20,
@@ -72,6 +81,7 @@ class _CartaoState extends State<Cartao> {
                         onTap: () {
                           controller.increment();
                           showSnackbarAddItem(widget.item.nome);
+                          cartController.addItemToCart(widget.item);
                         },
                         child: const Icon(
                           Icons.add_circle_outline,
