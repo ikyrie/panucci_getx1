@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get_dependency/components/order_item.dart';
+import 'package:get_dependency/dependencies/cart_controller.dart';
 import '../components/payment_method.dart';
 import '../components/payment_total.dart';
 
 class Checkout extends StatelessWidget {
-  const Checkout({Key? key, required this.homeContext}) : super(key: key);
-  final BuildContext homeContext;
+  Checkout({Key? key}) : super(key: key);
+  final CartController cartController = Get.find<CartController>();
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +27,10 @@ class Checkout extends StatelessWidget {
                 ),
               ),
               SliverList(
-                  delegate: SliverChildBuilderDelegate((context, index) {},
-                      childCount: 1)),
+                  delegate: SliverChildBuilderDelegate((context, index) {
+                    return OrderItem(item: cartController.cart[index]);
+                  },
+                      childCount: cartController.cart.length)),
               const SliverToBoxAdapter(
                 child: Padding(
                   padding: EdgeInsets.only(bottom: 8.0),
@@ -47,7 +52,7 @@ class Checkout extends StatelessWidget {
                   ),
                 ),
               ),
-              const SliverToBoxAdapter(child: PaymentTotal(total: 00.00),),
+              SliverToBoxAdapter(child: PaymentTotal(total: cartController.total.value),),
               SliverFillRemaining(
                 hasScrollBody: false,
                 child: Align(
