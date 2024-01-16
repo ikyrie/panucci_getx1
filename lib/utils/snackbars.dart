@@ -19,3 +19,13 @@ showSnackbarRemoveItem(String itemName) {
     ),
   );
 }
+
+showSnackbarPayment() {
+  return Get.showSnackbar(
+    const GetSnackBar(
+      title: "Pedido realizado!",
+      message: "Seu pedido chegará em breve!",
+      duration: Duration(seconds: 3),
+    ),
+  );
+}

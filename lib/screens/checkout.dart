@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_dependency/components/order_item.dart';
 import 'package:get_dependency/dependencies/cart_controller.dart';
+import 'package:get_dependency/screens/home.dart';
+import 'package:get_dependency/utils/snackbars.dart';
 import '../components/payment_method.dart';
 import '../components/payment_total.dart';
 
@@ -58,7 +60,10 @@ class Checkout extends StatelessWidget {
                 child: Align(
                     alignment: Alignment.bottomCenter,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        showSnackbarPayment();
+                        Get.offAll(() => Home());
+                      },
                       style: ElevatedButton.styleFrom(
                           elevation: 0,
                           foregroundColor: Colors.white,
