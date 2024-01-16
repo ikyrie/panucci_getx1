@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_dependency/components/cartao/cartao_controller.dart';
+import 'package:get_dependency/utils/snackbars.dart';
 
 import '../../models/item.dart';
 
@@ -59,7 +60,7 @@ class _CartaoState extends State<Cartao> {
                     children: <Widget>[
                       InkWell(
                         borderRadius: BorderRadius.circular(20),
-                        onTap: controller.decrement,
+                        onTap: () => controller.decrement(widget.item.nome),
                         child: const Icon(
                           Icons.remove_circle_outline,
                           size: 20,
@@ -70,11 +71,7 @@ class _CartaoState extends State<Cartao> {
                         borderRadius: BorderRadius.circular(20),
                         onTap: () {
                           controller.increment();
-                          Get.showSnackbar(GetSnackBar(
-                            title: "Item adicionado",
-                            message: "${widget.item.nome} adicionado à sacola",
-                            duration: const Duration(seconds: 3),
-                          ));
+                          showSnackbarAddItem(widget.item.nome);
                         },
                         child: const Icon(
                           Icons.add_circle_outline,
