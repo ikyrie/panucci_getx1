@@ -68,7 +68,14 @@ class _CartaoState extends State<Cartao> {
                       Obx(() => Text("${controller.counter}")),
                       InkWell(
                         borderRadius: BorderRadius.circular(20),
-                        onTap: controller.increment,
+                        onTap: () {
+                          controller.increment();
+                          Get.showSnackbar(GetSnackBar(
+                            title: "Item adicionado",
+                            message: "${widget.item.nome} adicionado à sacola",
+                            duration: const Duration(seconds: 3),
+                          ));
+                        },
                         child: const Icon(
                           Icons.add_circle_outline,
                           size: 20,
