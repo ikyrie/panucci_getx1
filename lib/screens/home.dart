@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_dependency/components/item_list.dart';
-import 'package:get_dependency/dependencies/cart_controller.dart';
+import 'package:get_dependency/controllers/cart_controller.dart';
 import 'package:get_dependency/screens/checkout.dart';
 import '../components/categoria_text.dart';
 import '../components/search_input.dart';

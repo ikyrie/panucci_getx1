@@ -13,7 +13,7 @@ showSnackbarAddItem(String itemName) {
 showSnackbarRemoveItem(String itemName) {
   return Get.showSnackbar(
     GetSnackBar(
-      title: "Item adicionado",
+      title: "Item removido",
       message: "$itemName removido do carrinho!",
       duration: const Duration(seconds: 3),
     ),

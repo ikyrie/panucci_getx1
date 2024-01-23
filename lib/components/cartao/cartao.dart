@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_dependency/components/cartao/cartao_controller.dart';
-import 'package:get_dependency/dependencies/cart_controller.dart';
+import 'package:get_dependency/controllers/cart_controller.dart';
 import 'package:get_dependency/utils/snackbars.dart';
 
 import '../../models/item.dart';
