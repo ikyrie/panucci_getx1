@@ -60,7 +60,7 @@ class Checkout extends StatelessWidget {
                 child: Align(
                     alignment: Alignment.bottomCenter,
                     child: ElevatedButton(
-                      onPressed: () async {
+                      onPressed: () {
                         showSnackbarPayment();
                         Get.offAll(() => Home());
                       },

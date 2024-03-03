@@ -41,7 +41,7 @@ class Home extends StatelessWidget {
                 alignment: Alignment.bottomCenter,
                 child: InkWell(
                   onTap: () {
-                    Get.to(Checkout());
+                    Get.to(() => Checkout());
                   },
                   child: Ink(
                       width: double.infinity,
